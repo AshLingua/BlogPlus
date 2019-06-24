@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<div class="container main">
+    <h1>Blogs</h1>
+    <p> <a class="ui large green button" href="/blogs/new">Add a n ew Blog post</a>
+             </p>
+    <% blogs.forEach(function(blog) { %>
+        <div class="ui main text segment">
+            <div class="item">
+                <h2><%= blog.title %></h2>
+            </div>
+            <div class="item">
+           
+                <img src="<%= blog.image %>">
+            </div>
+        <p>
+        <% var short=blog.body.substring(0,100);
+        blog.body=short; %>
+        <%= blog.body %>
+ 
+        </p>
+        <span><caption><%= blog.created.toDateString() %></caption></span>
+    <div class="extra">
+        <a href="/blogs/<%= blog._id %>" class="ui floated basic green button">>READ MORE
+          <i class="right chevron icon"></i>
+        </a>
+     </div>
+            </div>
+    <% }); %>
+ </div>
+<% include ../partials/footer %>

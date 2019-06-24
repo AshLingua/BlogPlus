@@ -1,0 +1,44 @@
+<% include ../partials/header.ejs %>
+<div class="ui main  container">
+    <div class="ui huge header"><%=blog.title%></div>
+        <div class="ui top  segment">
+            <div class="">
+                <img class= "ui centered rounded image" src="<%=blog.image%>">
+                <div class="content">
+                    <caption><%=blog.created.toDateString()%></caption>
+                </div>
+                <div class="description">
+                    <p><%-blog.body%></p>
+                </div>
+             </div>
+        </div>
+
+            <a href="/blogs/<%=blog._id%>/edit" class="ui orange basic button">Edit Blog</a>
+            <a href="/blogs/" class="ui green basic button">Back to Index</a>
+
+             <form method="POST" action="/blogs/<%=blog._id%>?_method=DELETE">
+                <button type="submit" class="ui red basic button ">Delete</button>
+            </form>
+    </div>
+</div>
+ <div class="ui segment">
+     <div class="ui centered header">
+              <h1>Comments</h1>
+     </div>
+      <a class="large green button" type="button" href="/blogs/<%=blog._id %>/comments/new">Add a Comment</a>
+
+<% blog.comments.forEach(function(comment){%>
+
+             <li><%=comment.text %></li>
+             <li><%=comment.author.username %></li>
+         <a class="small green button"  href="/blogs/<%=blog._id %>/comments/<%= comment._id %>/edit">Edit</a>
+        <form action="/blogs/<%=blog._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+            <button type=submit class="small inverted red button">DELETE</button>
+        </form>
+         <% }) %>
+     <div class="ui segment">
+
+     </div>
+
+ </div>
+<% include ../partials/footer.ejs %>

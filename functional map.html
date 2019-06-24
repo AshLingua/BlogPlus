@@ -1,0 +1,40 @@
+middleware
+    index.js 
+        var middlewareObj = {};
+        middlewareObj.isLoggedIn = function(req,res,next) {...
+        middlewareObj.checkCommentOwnership = function(req, res, next) {...
+        module.exports= middlewareObj;
+models
+    blog.js
+    comment.js
+    user.js
+    
+public
+    app.css
+routes
+    blogs.js
+    comments.js
+    index.js
+    
+views
+    landing.ejs
+    login.ejs
+    register.ejs
+        blogs>
+            index.ejs
+            show.ejs
+            new.ejs
+            edit.ejs
+        comments>
+            edit.ejs
+            new.ejs
+app.js
+package.json
+
+            
+        comments>
+        partials>
+            header.ejs
+            footer.ejs
+
+    
